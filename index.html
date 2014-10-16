@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bookStore">
 <head lang="en">
     <meta charset="UTF-8">
     <title>.::Angular js::.</title>
+    <link href="app/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="container bs-docs-container" ng-controller="testCtrlOne">
+    <div class="panel panel-default">
+        <div class="panel-heading">Learning Angular</div>
+        <div class="panel-body">
+
+            <div class="row" ng-controller="bookShop as store">
+                <div class="col-sm-6 col-md-4" ng-repeat="book in store.product | limitTo:2 | orderBy: '-price'">
+                    <div class="thumbnail">
+                        <img ng-src="app/images/{{book.image[0].full}}" alt="...">
+                        <div class="caption">
+                            <h3>{{book.name | uppercase}}</h3>
+                            <p>{{book.dec}}</p>
+                            <p>{{book.price | currency:'$'}}</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button" ng-show="book.canPer">Add To Cart</a>
+                                <a href="#" class="btn btn-default" role="button">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+                    <section ng-controller="PanelController as panel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li ng-class="{active:tab === 1}"><a href="javascript:;" ng-click="tab = 1">Description</a></li>
+                            <li ng-class="{active:tab === 2}"><a href="javascript:;" ng-click="tab = 2">Specification</a></li>
+                            <li ng-class="{active:tab === 3}"><a href="javascript:;" ng-click="tab = 3">Review</a></li>
+                        </ul>
+                        <div class="bs-callout bs-callout-danger" ng-show="tab === 1">
+                            <h4>Description</h4>
+                            <p>Data</p>
+                        </div>
+                        <div class="bs-callout bs-callout-danger" ng-show="tab === 2">
+                            <h4>Specification</h4>
+                            <p>Data</p>
+                        </div>
+                        <div class="bs-callout bs-callout-danger" ng-show="tab === 3">
+                            <h4>Review</h4>
+                            <p>Data</p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
 
 <script type="text/javascript" src="app/lib/angular.js"></script>
-<script type="text/javascript" src="app/lib/main.js"></script>
+<script type="text/javascript" src="app/main.js"></script>
 </body>
 </html>
