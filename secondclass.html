@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>.::Angular js::.</title>
+    <link href="app/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container bs-docs-container">
+    <div class="panel panel-default" ng-controller="testCtrlOne">
+        <div class="panel-heading">Learning Angular Class Tow</div>
+        <div class="panel-body">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="newItem">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="addItems()">Add!</button>
+                    </span>
+                </div>
+                <input type="text" class="form-control" ng-model="name">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in itemsList | filter:name">
+
+                        {{ item.name }}
+                        {{ item.phone }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="app/lib/angular.js"></script>
+<script type="text/javascript" src="app/main.js"></script>
+</body>
+</html>
