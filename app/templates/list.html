@@ -1,0 +1,18 @@
+<div class="col-md-12" role="main">
+    <div class="col-sm-6 col-md-3" ng-repeat="list in guitarVariable">
+        <div class="thumbnail">
+            <img ng-src="app/images/{{list.image}}.jpg" alt="...">
+
+            <div class="caption">
+                <span class="label label-info">{{list.price | currency:$}}</span>
+                <h3>{{list.name}}</h3>
+                <p>{{list.description}}</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">Add to Cart</a>
+                    <a href="#" class="btn btn-default" role="button">View Detail</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

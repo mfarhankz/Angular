@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="GuitarApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>.::Angular Route::.</title>
+    <link href="app/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container bs-docs-container" ng-controller="ListController">
+    <div class="panel panel-default">
+        <div class="panel-heading">Learning Route</div>
+        <div class="panel-body">
+            <div class="bs-callout" style="margin-bottom: 10px;">
+                <ul class="nav nav-tabs" role="tablist" ng-controller="HeaderController">
+                    <li ng-class="{ active: isActive('/acoustic-guitar')}"><a href="#acoustic-guitar">Acoustic Guitar</a></li>
+                    <li ng-class="{ active: isActive('/electric-guitar')}"><a href="#electric-guitar">Electric Guitar</a></li>
+                    <li ng-class="{ active: isActive('/bass-guitar')}"><a href="#bass-guitar">Bass Guitar</a></li>
+                    <li ng-class="{ active: isActive('/luq-guitar')}"><a href="#luq-guitar">Luq Guitar</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="app/lib/angular.js"></script>
+<script type="text/javascript" src="app/lib/angular-route.min.js"></script>
+<script type="text/javascript" src="app/route-main.js"></script>
+</body>
+</html>
+
+
