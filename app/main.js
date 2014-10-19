@@ -26,6 +26,20 @@ function testCtrlTow($scope){
 
     app.controller('PanelController', function(){
         this.tab = 1;
+        this.selectTab = function(setTab){
+            this.tab = setTab;
+        };
+        this.isSelected = function(checkTab){
+            return this.tab === checkTab;
+        };
+    });
+
+    app.controller('ReviewController', function(){
+        this.review = {};
+        this.addReview = function(product){
+            product.reviews.push(this.review);
+            this.review = {};
+        }
     });
 
     var gem = [
@@ -38,6 +52,23 @@ function testCtrlTow($scope){
                 {
                     full:'product.jpg'
                 }
+            ],
+            reviews:[
+                {
+                    star:5,
+                    body:'I love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:3,
+                    body:'I Love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:1,
+                    body:'I heat this product',
+                    author:'m.farhankx@gmail.com'
+                }
             ]
         },
         {
@@ -49,6 +80,23 @@ function testCtrlTow($scope){
                 {
                     full:'product.jpg'
                 }
+            ],
+            reviews:[
+                {
+                    star:5,
+                    body:'I love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:3,
+                    body:'I Love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:1,
+                    body:'I heat this product',
+                    author:'m.farhankx@gmail.com'
+                }
             ]
         },
         {
@@ -59,6 +107,23 @@ function testCtrlTow($scope){
             image:[
                 {
                     full:'product.jpg'
+                }
+            ],
+            reviews:[
+                {
+                    star:5,
+                    body:'I love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:3,
+                    body:'I Love this product',
+                    author:'m.farhankx@gmail.com'
+                },
+                {
+                    star:1,
+                    body:'I heat this product',
+                    author:'m.farhankx@gmail.com'
                 }
             ]
         }

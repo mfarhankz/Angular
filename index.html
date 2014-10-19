@@ -12,7 +12,7 @@
         <div class="panel-body">
 
             <div class="row" ng-controller="bookShop as store">
-                <div class="col-sm-6 col-md-4" ng-repeat="book in store.product | limitTo:2 | orderBy: '-price'">
+                <div class="col-sm-6 col-md-4" ng-repeat="book in store.product | limitTo:3 | orderBy: '-price'">
                     <div class="thumbnail">
                         <img ng-src="app/images/{{book.image[0].full}}" alt="...">
                         <div class="caption">
@@ -27,21 +27,47 @@
                     </div>
                     <section ng-controller="PanelController as panel">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li ng-class="{active:tab === 1}"><a href="javascript:;" ng-click="tab = 1">Description</a></li>
-                            <li ng-class="{active:tab === 2}"><a href="javascript:;" ng-click="tab = 2">Specification</a></li>
-                            <li ng-class="{active:tab === 3}"><a href="javascript:;" ng-click="tab = 3">Review</a></li>
+                            <li ng-class="{active:panel.isSelected(1)}"><a href="javascript:;" ng-click="panel.selectTab(1)">Description</a></li>
+                            <li ng-class="{active:panel.isSelected(2)}"><a href="javascript:;" ng-click="panel.selectTab(2)">Specification</a></li>
+                            <li ng-class="{active:panel.isSelected(3)}"><a href="javascript:;" ng-click="panel.selectTab(3)">Review</a></li>
                         </ul>
-                        <div class="bs-callout bs-callout-danger" ng-show="tab === 1">
+                        <div class="bs-callout bs-callout-danger" ng-show="panel.isSelected(1)">
                             <h4>Description</h4>
-                            <p>Data</p>
+                            <blockquote>Data</blockquote>
                         </div>
-                        <div class="bs-callout bs-callout-danger" ng-show="tab === 2">
+                        <div class="bs-callout bs-callout-danger" ng-show="panel.isSelected(2)">
                             <h4>Specification</h4>
-                            <p>Data</p>
+                            <blockquote>Data</blockquote>
                         </div>
-                        <div class="bs-callout bs-callout-danger" ng-show="tab === 3">
+                        <div class="bs-callout bs-callout-danger" ng-show="panel.isSelected(3)">
                             <h4>Review</h4>
-                            <p>Data</p>
+
+                            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                                  ng-submit="reviewCtrl.addReview(product)">
+
+                                <blockquote ng-repeat="review in book.reviews">
+                                    <b>{{reviewCtrl.review.star}} Star</b>
+                                    <p>{{reviewCtrl.review.body}}</p>
+                                    <city class="clearfix">-{{reviewCtrl.review.author}}</city>
+                                </blockquote>
+
+                                <p>
+                                    <select class="form-control" ng-model="reviewCtrl.review.stars">
+                                        <option value="1">1 Star</option>
+                                        <option value="3">2 Stars</option>
+                                        <option value="3">3 Stars</option>
+                                        <option value="4">4 Stars</option>
+                                        <option value="5">5 Stars</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <textarea class="form-control" ng-model="reviewCtrl.review.body"></textarea>
+                                </p>
+                                <p>
+                                    <input type="email" class="form-control" ng-model="reviewCtrl.review.author"/>
+                                </p>
+                                <input type="submit" value="Submit" class="btn btn-primary"/>
+                            </form>
                         </div>
                     </section>
 

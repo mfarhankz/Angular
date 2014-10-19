@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="reviewMdl">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>.::Angular Router::.</title>
+    <link href="app/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container bs-docs-container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Learning Angular</div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <section ng-controller="detailController">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li><a href="javascript:;">Description</a></li>
+                            <li><a href="javascript:;">Specification</a></li>
+                            <li><a href="javascript:;">Review</a></li>
+                        </ul>
+                        <div class="bs-callout bs-callout-danger">
+                            <h4>Description</h4>
+                            <blockquote>{{products[0].description}}</blockquote>
+                        </div>
+                        <div class="bs-callout bs-callout-danger">
+                            <h4>Specification</h4>
+                            <blockquote>{{products[0].specification}}</blockquote>
+                        </div>
+                        <div class="bs-callout bs-callout-danger">
+                            <h4>Review</h4>
+                            <blockquote>{{products[0].review}}</blockquote>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script type="text/javascript" src="app/lib/angular.js"></script>
+<script type="text/javascript" src="app/lib/angular-router.js"></script>
+<script type="text/javascript">
+    (function(){
+        angular.module('reviewMdl', ['ngRoute']
+        ).controller('detailController', function($scope){
+            $scope.products = tabs;
+        });
+
+        var tabs = [
+            {
+                description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                specification:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                review:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            }
+        ]
+
+    })();
+</script>
+</body>
+</html>
