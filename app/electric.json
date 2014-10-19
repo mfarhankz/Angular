@@ -1,0 +1,10 @@
+[
+		{
+			"name" 		 : "Electric Guitar",
+			"description": "Ever-popular solid-body guitars, to hollow-body guitars and archtops.",
+			"image"	:  "product",
+			"price" : "18.34",
+			"dateAdded" : "1399779623000",
+			"category" : "expensive"
+		}
+]

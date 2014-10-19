@@ -1,0 +1,10 @@
+<div class="col-sm-6 col-md-4" ng-repeat="list in guitarVariable">
+    <div class="thumbnail">
+        <p>{{list.name}}</p>
+        <p>{{list.description}}</p>
+        <p><img ng-src="app/images/{{list.image}}.jpg" alt="..."></p>
+        <p>{{list.price | currency:$}}</p>
+        <p>{{list.category}}</p>
+        <p>{{list.dateAdded}}</p>
+    </div>
+</div>

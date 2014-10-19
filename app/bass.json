@@ -1,0 +1,10 @@
+[
+    {
+        "name" 		 : "Bass Guitar",
+        "description": "Classic Fender Bass, Precision and Jazz basses, to Gibson Thunderbirds.",
+        "image"	:  "product",
+        "price" : "35.98",
+        "dateAdded" : "1402544423000",
+        "category" : "cheap"
+    }
+]
